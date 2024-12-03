@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+<div class="dashboard">
+    <!-- Sidebar: Personal Fields -->
+    <div class="sidebar">
+        <div class="profile">
+            <div class="profile-picture-container">
+                <img id="profile-picture" src="../images/profilepictureplaceholder.jpg" alt="Profile Picture">
+                <div class="upload-overlay">
+                    <span>Click to Upload</span>
+                    <input type="file" id="profile-upload" accept="image/*">
+                </div>
+            </div>
+        </div>
+        <div class="fields">
+            <div class="search-field-container">
+                <input type="text" class="search-fields" placeholder="Search for fields...">
+            </div>
+            <ul class="field-list">
+                <li>Papyri 1</li>
+                <li>Papyri 2</li>
+                <li>Papyri 3</li>
+                <li>Papyri 4</li>
+                <li>Papyri 5</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Main Section -->
+    <div class="main">
+        <!-- Search Resources -->
+        <div class="search-bar">
+            <input type="text" placeholder="Search Resources (URL, ID, Title, Terms)...">
+        </div>
+
+        <!-- Fields and Resources -->
+        <div class="content">
+            <div class="personal-projects">
+                <h3>Personal Projects (Fields)</h3>
+                <ul>
+                    <li>Project 1</li>
+                    <li>Project 2</li>
+                    <li>Project 3</li>
+                </ul>
+            </div>
+
+            <div class="saved-resources">
+                <h3>Saved Resources</h3>
+                <ul>
+                    <li>Resource 1</li>
+                    <li>Resource 2</li>
+                    <li>Resource 3</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Topics and Recent Resources -->
+        <div class="content">
+            <div class="personal-topics">
+                <h3>Personal Topics Fields</h3>
+                <ul>
+                    <li>Topic A</li>
+                    <li>Topic B</li>
+                    <li>Topic C</li>
+                </ul>
+            </div>
+
+            <div class="recent-resources">
+                <h3>Recent Resources Viewed</h3>
+                <ul>
+                    <li>Recent 1</li>
+                    <li>Recent 2</li>
+                    <li>Recent 3</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>
