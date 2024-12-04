@@ -6,26 +6,22 @@ document.getElementById("saveButton").addEventListener("click", () => {
     setTimeout(() => {
         confirmationMessage.classList.add("hidden");
     }, 3000);
-    saveResource();
 
+    saveResource();
 });
 
-function saveResource(){
-    const url = "http://localhost:8080/api/resource/save";
-    const data = {
-        name: "Resource name",
-        author: "Resource author",
-        fromDate: "2023-01-01",
-        toDate: "2023-02-01",
-        users: []
-    };
+function saveResource() {
+    const url = "http://localhost:8080/api/resources/saveaspersonalresource";
+    const params = new URLSearchParams({
+        resourceId: "1",
+        userId: "2"
+    });
 
-    fetch(url, {
+    fetch(url + "?" + params.toString(), {
         method: "POST",
         headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data),
+            "Content-Type": "application/x-www-form-urlencoded"
+        }
     })
         .then(response => response.json())
         .then(data => {
