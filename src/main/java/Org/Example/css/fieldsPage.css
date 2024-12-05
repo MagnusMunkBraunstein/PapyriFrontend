@@ -1,0 +1,133 @@
+/* General Styles */
+body {
+    font-family: "Times New Roman", Times, serif;
+    box-sizing: border-box;
+    background-color: rgb(24, 44, 37);
+    color: rgb(51, 51, 51);
+    overflow: hidden;
+    height: 100vh;
+
+}
+
+.profile {
+    position: static;
+    width: 120px;
+    margin: 20px;
+    margin-left: 25%;
+}
+
+.profile-picture-container {
+    position: relative;
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #ccc;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+#profile-picture {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.upload-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.upload-overlay span {
+    font-size: 14px;
+    text-align: center;
+}
+
+.profile-picture-container:hover .upload-overlay {
+    opacity: 1;
+    pointer-events: all;
+}
+
+#profile-upload {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Fields Section */
+.fieldbar {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(69, 91, 85);
+    width: 30%;
+    box-shadow: rgba(0, 0, 0, 0.1) 2px 5px;
+    height: 72.3vh;
+    border-right: 1px solid rgb(30, 69, 62);
+    padding: 20px;
+    border-radius: 35px;
+}
+
+.search-field-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically if height is set */
+}
+
+.search-fields {
+    width: 98%;
+    margin: 10px;
+    padding: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(204, 204, 204);
+    border-image: initial;
+    border-radius: 5px;
+
+}
+
+.fields {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically if height is set */
+
+}
+
+.field-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto; /* Center the list container */
+    width: 100%;
+}
+
+.field-list li {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    background-color: #f7f7f7;
+}
+
