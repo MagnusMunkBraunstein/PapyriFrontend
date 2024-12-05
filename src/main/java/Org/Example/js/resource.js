@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const saveButton = document.getElementById('saveButton');
+    const returnToDashboardButton = document.getElementById('returnToDashboardButton');
     const confirmationMessage = document.getElementById('confirmationMessage');
 
     confirmationMessage.classList.remove("hidden");
@@ -22,9 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         saveResource();
     });
+
+    returnToDashboardButton.addEventListener("click", () => {
+        window.location.href = `dashboard.html?userId=${userId}`;
+    });
 });
-
-
 
 function checkIfResourceIsSaved(userId, resourceId, saveButton) {
     const url = `http://localhost:8080/api/users/${userId}/resources`;
@@ -35,11 +38,10 @@ function checkIfResourceIsSaved(userId, resourceId, saveButton) {
             'Content-Type': 'application/json'
         },
     })
-
         .then(response => response.json())
         .then((data) => {
             const isResourceSaved = data.some(resource => resource.id == resourceId);
-            if(isSaved){
+            if (isResourceSaved) {
                 saveButton.style.display = 'none';
             }
         })
@@ -48,37 +50,6 @@ function checkIfResourceIsSaved(userId, resourceId, saveButton) {
         });
 }
 
-
-function loadPersonalResources() {
-    const url = 'http://localhost:8080/api/users/3/resources';
-
-    fetch(url, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
-        .then(response => response.json())
-        .then(data => {
-            const savedResourcesList = document.querySelector('.saved-resources ul');
-            savedResourcesList.innerHTML = ''; // Clear existing list
-
-            data.forEach(resource => {
-                const listItem = document.createElement('li');
-                listItem.textContent = resource.name; // Display only the name
-                listItem.dataset.id = resource.id; // Store the resource ID
-                listItem.addEventListener('click', () => {
-                    window.location.href = `resource.html?userId=3&resourceId=${resource.id}`; // Redirect to the new HTML page with the user ID and resource ID
-                });
-                savedResourcesList.appendChild(listItem);
-            });
-        })
-        .catch((error) => {
-            console.error("Error:", error);
-        });
-}
-
-//Test
 function saveResource() {
     const url = "http://localhost:8080/api/users/saveaspersonalresource";
     const params = new URLSearchParams({

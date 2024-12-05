@@ -61,7 +61,10 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function loadPersonalResources() {
-    const url = 'http://localhost:8080/api/users/3/resources';
+
+    // need to insert the true id when it is posible
+
+    const url = `http://localhost:8080/api/users/3/resources`;
 
     fetch(url, {
         method: 'GET',
