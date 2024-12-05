@@ -10,22 +10,29 @@ document.getElementById("saveButton").addEventListener("click", () => {
     saveResource();
 });
 
-function saveResource() {
-    const url = "http://localhost:8080/api/users/saveaspersonalresource";
-    const params = new URLSearchParams({
-        resourceId: "3",
-        userId: "3"
-    });
+function loadPersonalResources() {
+    const url = 'http://localhost:8080/api/users/3/resources';
 
-    fetch(url + "?" + params.toString(), {
-        method: "POST",
+    fetch(url, {
+        method: 'GET',
         headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+            'Content-Type': 'application/json'
         }
     })
         .then(response => response.json())
         .then(data => {
-            console.log("Success:", data);
+            const savedResourcesList = document.querySelector('.saved-resources ul');
+            savedResourcesList.innerHTML = ''; // Clear existing list
+
+            data.forEach(resource => {
+                const listItem = document.createElement('li');
+                listItem.textContent = resource.name; // Display only the name
+                listItem.dataset.id = resource.id; // Store the resource ID
+                listItem.addEventListener('click', () => {
+                    window.location.href = `resource.html?userId=3&resourceId=${resource.id}`; // Redirect to the new HTML page with the user ID and resource ID
+                });
+                savedResourcesList.appendChild(listItem);
+            });
         })
         .catch((error) => {
             console.error("Error:", error);
