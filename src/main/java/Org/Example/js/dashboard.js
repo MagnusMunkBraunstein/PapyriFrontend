@@ -1,5 +1,3 @@
-
-
 document.addEventListener('DOMContentLoaded', () => {
     // Allow uploading a profile picture
     const profileUpload = document.getElementById('profile-upload');
@@ -30,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Saved Resource Click Listener
     const resources = document.querySelectorAll('.saved-resources ul li');
-    loadPersonalResources();
     resources.forEach(resource => {
         resource.addEventListener('click', () => {
             alert(`Opening ${resource.textContent}`);
@@ -60,32 +57,41 @@ document.addEventListener('DOMContentLoaded', () => {
             alert(`You clicked on ${topic.textContent}`);
         });
     });
+    loadPersonalResources();
+});
 
+function loadPersonalResources() {
+    const url = 'http://localhost:8080/api/users/3/resources'; // Assuming the user ID is 3
+    fetch(url, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(response => response.json())
+        .then(data => {
+            const savedResourcesList = document.querySelector('.saved-resources ul');
+            savedResourcesList.innerHTML = '';// Clear existing list
 
-
-
-
-    function loadPersonalResources(){
-        const url = 'http://localhost:8080/api/users/3/resources';
-    }
-        fetch(url, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-            .then(response => response.json())
-            .then(data => {
-                const savedResourcesList = document.querySelector('.saved-resources ul');
-                savedResourcesList.innerHTML = ''; // Clear existing list
+            if (Array.isArray(data) && data.length > 0) {
                 data.forEach(resource => {
                     const listItem = document.createElement('li');
                     listItem.textContent = resource.name; // Assuming the resource object has a 'name' property
                     savedResourcesList.appendChild(listItem);
                 });
-            })
-            .catch((error) => {
-                console.error("Error:", error);
-            });
+            } else {
+                const emptyMessage = document.createElement('li');
+                emptyMessage.textContent = 'No saved resources found';
+                savedResourcesList.appendChild(emptyMessage);
+            }
+            /*data.forEach(resource => {
+                const listItem = document.createElement('li');
+                listItem.textContent = resource.name; // Assuming the resource object has a 'name' property
+                savedResourcesList.appendChild(listItem);
+            });*/
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
+}
 
-});
