@@ -189,7 +189,7 @@ body {
 }
 
 .personal-projects, .personal-topics, .saved-resources, .recent-resources {
-    color: white;
+    color: black;
     background-color: rgb(69, 91, 85);
     box-shadow: rgba(0, 0, 0, 0.1) 2px 5px;
     width: 50%;
