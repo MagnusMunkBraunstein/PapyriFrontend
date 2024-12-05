@@ -1,32 +1,30 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+    font-family: "Times New Roman", Times, serif;
     box-sizing: border-box;
-    background-color: #f9f9f9;
-    color: #333;
-    overflow: hidden; /* Prevent page scrolling */
+    background-color: rgb(24, 44, 37);
+    color: rgb(51, 51, 51);
+    overflow: hidden;
 }
 
 /* Top Bar */
 :root {
-    --top-bar-gradient: linear-gradient(to right, #6a11cb, #2575fc); /* Default gradient */
+    --top-bar-gradient: linear-gradient(to right, #2c4c3b, #306844); /* Default gradient */
 }
 
 .top-bar {
-    background: var(--top-bar-gradient); /* Use the gradient from the variable */
     color: white;
-    padding: 10px 20px;
     position: sticky;
-    top: 0;
-    left: 0;
+    top: 0px;
     width: 100%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 1000; /* Ensure it stays on top of other content */
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    background: var(--top-bar-gradient);
+    padding: 10px 20px;
 }
 
 .top-bar-title {
@@ -36,22 +34,37 @@ body {
 
 .dashboard {
     display: flex;
-    min-height: 100vh; /* Ensure the dashboard takes at least full viewport height */
-    margin-top: 50px;
+    flex-direction: row;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+}
+
+.profile-sidebar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25%;
+    height: 100vh;
+    margin-top: 0px;
+    margin-left: 2%;
 }
 
 /* Sidebar */
 .sidebar {
-    background-color: #fff;
-    border-right: 1px solid #ccc;
-    width: 25%;
+    background-color: rgb(69, 91, 85);
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.1) 2px 0px 5px;
+    height: 72.3vh;
+    border-right: 1px solid rgb(30, 69, 62);
     padding: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 35px;
 }
 
 .profile {
-    text-align: center;
-    margin-bottom: 30px;
+    position: static;
+    width: 120px;
+    margin: 20px 0px;
 }
 
 .profile-picture-container {
@@ -111,6 +124,7 @@ body {
 /* Fields Section */
 .fields {
     margin-top: 20px;
+    width: 100%;
 }
 
 .search-field-container {
@@ -120,9 +134,12 @@ body {
 }
 
 .search-fields {
-    padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
+    padding: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(204, 204, 204);
+    border-image: initial;
     border-radius: 5px;
 }
 
@@ -143,40 +160,45 @@ body {
 /* Main Section */
 .main {
     flex-grow: 1;
-    padding: 20px;
     display: flex;
     flex-direction: column;
-    overflow-y: auto; /* Allow scrolling in the main section if necessary */
+    overflow-y: auto;
+    height: 85vh;
+    padding: 20px;
 }
 
 .search-bar {
     margin-bottom: 20px;
-    width: 100%;
+    margin-left: 20px;
+    margin-right: 20px;
     display: flex;
     justify-content: center;
 }
-
 .search-bar input {
-    width: 48%;
+    width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(204, 204, 204);
+    border-image: initial;
     border-radius: 5px;
 }
 
 .content {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 40px;
-    overflow: hidden; /* Prevent content overflow */
+    height: 100vh;
 }
 
 .personal-projects, .personal-topics, .saved-resources, .recent-resources {
-    background-color: #fff;
+    color: white;
+    background-color: rgb(69, 91, 85);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 5px;
+    width: 50%;
     padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 48%;
+    border-radius: 35px;
     margin: 20px;
+    border-right: 1px solid rgb(30, 69, 62);
 }
 
 h3 {
