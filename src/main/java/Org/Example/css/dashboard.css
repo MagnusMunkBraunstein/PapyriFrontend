@@ -1,17 +1,15 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+    font-family: "Times New Roman", Times, serif;
     box-sizing: border-box;
-    background-color: #f9f9f9;
+    background-color: #182c25;
     color: #333;
     overflow: hidden; /* Prevent page scrolling */
 }
 
 /* Top Bar */
 :root {
-    --top-bar-gradient: linear-gradient(to right, #6a11cb, #2575fc); /* Default gradient */
+    --top-bar-gradient: linear-gradient(to right, #182c25, rgb(48, 104, 68)); /* Default gradient */
 }
 
 .top-bar {
@@ -20,13 +18,13 @@ body {
     padding: 10px 20px;
     position: sticky;
     top: 0;
-    left: 0;
     width: 100%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 1000; /* Ensure it stays on top of other content */
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
 }
 
 .top-bar-title {
@@ -34,25 +32,44 @@ body {
     font-weight: bold;
 }
 
+/* Dashboard */
 .dashboard {
     display: flex;
+    flex-direction: row; /* Ensure the sidebar and main content are side by side */
+    align-items: center; /* Align items to the top */
     min-height: 100vh; /* Ensure the dashboard takes at least full viewport height */
-    margin-top: 50px;
+    position: relative; /* Make the dashboard a positioned element */
+}
+
+/* New Profile and Sidebar Container */
+.profile-sidebar-container {
+    display: flex;
+    flex-direction: column; /* Stack profile picture above the sidebar */
+    align-items: center; /* Center the profile picture and sidebar */
+    width: 25%; /* Maintain the width of the sidebar */
+    height: 100vh;
+    margin-top: 0; /* Remove extra margin since profile already has spacing */
+    margin-left: 2%;
 }
 
 /* Sidebar */
 .sidebar {
-    background-color: #fff;
-    border-right: 1px solid #ccc;
-    width: 25%;
+    background-color: #455b55;
+    border-right: 1px solid #1e453e;
+    width: 100%;
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 35px;
+    height: 72.3vh; /* Adjust the height to fit the profile picture */
 }
 
+/* Profile */
 .profile {
-    text-align: center;
-    margin-bottom: 30px;
+    position: static; /* Reset absolute positioning */
+    margin: 20px 0; /* Add spacing above and below */
+    width: 120px; /* Maintain the profile width */
 }
+
 
 .profile-picture-container {
     position: relative;
@@ -111,6 +128,7 @@ body {
 /* Fields Section */
 .fields {
     margin-top: 20px;
+    width: 100%;
 }
 
 .search-field-container {
@@ -120,7 +138,7 @@ body {
 }
 
 .search-fields {
-    padding: 10px;
+    padding: 5px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -147,17 +165,19 @@ body {
     display: flex;
     flex-direction: column;
     overflow-y: auto; /* Allow scrolling in the main section if necessary */
+    height: 85vh; /* Ensure the main section takes full viewport height */
 }
 
 .search-bar {
     margin-bottom: 20px;
-    width: 100%;
+    margin-left: 20px;
+    margin-right: 20px;
     display: flex;
     justify-content: center;
 }
 
 .search-bar input {
-    width: 48%;
+    width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -166,17 +186,18 @@ body {
 .content {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 40px;
-    overflow: hidden; /* Prevent content overflow */
+    height: 100vh;
 }
 
 .personal-projects, .personal-topics, .saved-resources, .recent-resources {
-    background-color: #fff;
+    color: white;
+    background-color: #455b55;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 35px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 48%;
+    width: 50%;
     margin: 20px;
+    border-right: 1px solid #1e453e;
 }
 
 h3 {
