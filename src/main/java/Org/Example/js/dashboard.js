@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const profileUpload = document.getElementById('profile-upload');
     const profilePicture = document.getElementById('profile-picture');
 
+
     profileUpload.addEventListener('change', (event) => {
         const file = event.target.files[0];
         if (file) {
@@ -29,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Saved Resource Click Listener
     const resources = document.querySelectorAll('.saved-resources ul li');
+    loadPersonalResources();
     resources.forEach(resource => {
         resource.addEventListener('click', () => {
             alert(`Opening ${resource.textContent}`);
@@ -58,4 +60,32 @@ document.addEventListener('DOMContentLoaded', () => {
             alert(`You clicked on ${topic.textContent}`);
         });
     });
+
+
+
+
+
+    function loadPersonalResources(){
+        const url = 'http://localhost:8080/api/users/3/resources';
+    }
+        fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                const savedResourcesList = document.querySelector('.saved-resources ul');
+                savedResourcesList.innerHTML = ''; // Clear existing list
+                data.forEach(resource => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = resource.name; // Assuming the resource object has a 'name' property
+                    savedResourcesList.appendChild(listItem);
+                });
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+            });
+
 });
