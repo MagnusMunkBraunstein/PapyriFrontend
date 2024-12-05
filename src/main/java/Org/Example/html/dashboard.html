@@ -11,8 +11,9 @@
     <span class="top-bar-title">Your Dashboard</span>
 </div>
 <div class="dashboard">
-    <!-- Sidebar: Personal Fields -->
-    <div class="sidebar">
+    <!-- Profile and Sidebar Container -->
+    <div class="profile-sidebar-container">
+        <!-- Profile Picture -->
         <div class="profile">
             <div class="profile-picture-container">
                 <img id="profile-picture" src="../images/profilepictureplaceholder.jpg" alt="Profile Picture">
@@ -22,17 +23,21 @@
                 </div>
             </div>
         </div>
-        <div class="fields">
-            <div class="search-field-container">
-                <input type="text" class="search-fields" placeholder="Search for fields...">
+
+        <!-- Sidebar: Personal Fields -->
+        <div class="sidebar">
+            <div class="fields">
+                <div class="search-field-container">
+                    <input type="text" class="search-fields" placeholder="Search for fields...">
+                </div>
+                <ul class="field-list">
+                    <li>Papyri 1</li>
+                    <li>Papyri 2</li>
+                    <li>Papyri 3</li>
+                    <li>Papyri 4</li>
+                    <li>Papyri 5</li>
+                </ul>
             </div>
-            <ul class="field-list">
-                <li>Papyri 1</li>
-                <li>Papyri 2</li>
-                <li>Papyri 3</li>
-                <li>Papyri 4</li>
-                <li>Papyri 5</li>
-            </ul>
         </div>
     </div>
 
@@ -55,7 +60,7 @@
             </div>
 
             <div class="saved-resources">
-                <h3>Saved Resources</h3>
+                <h3>SAVED RESOURCES</h3>
                 <ul>
                     <li>Resource 1</li>
                     <li>Resource 2</li>
@@ -67,7 +72,7 @@
         <!-- Topics and Recent Resources -->
         <div class="content">
             <div class="personal-topics">
-                <h3>Personal Topics Fields</h3>
+                <h3>PERSONAL TOPICS</h3>
                 <ul>
                     <li>Topic A</li>
                     <li>Topic B</li>
@@ -76,7 +81,7 @@
             </div>
 
             <div class="recent-resources">
-                <h3>Recent Resources Viewed</h3>
+                <h3>RECENT RESOURCES VIEWED</h3>
                 <ul>
                     <li>Recent 1</li>
                     <li>Recent 2</li>
@@ -86,6 +91,7 @@
         </div>
     </div>
 </div>
+
 
     <script src="../js/dashboard.js"></script>
 </body>
