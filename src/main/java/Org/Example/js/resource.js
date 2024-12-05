@@ -78,7 +78,7 @@ function loadPersonalResources() {
         });
 }
 
-
+//Test
 function saveResource() {
     const url = "http://localhost:8080/api/users/saveaspersonalresource";
     const params = new URLSearchParams({
