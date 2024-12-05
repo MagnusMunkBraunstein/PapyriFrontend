@@ -11,10 +11,10 @@ document.getElementById("saveButton").addEventListener("click", () => {
 });
 
 function saveResource() {
-    const url = "http://localhost:8080/api/resources/saveaspersonalresource";
+    const url = "http://localhost:8080/api/users/saveaspersonalresource";
     const params = new URLSearchParams({
-        resourceId: "1",
-        userId: "2"
+        resourceId: "3",
+        userId: "3"
     });
 
     fetch(url + "?" + params.toString(), {
