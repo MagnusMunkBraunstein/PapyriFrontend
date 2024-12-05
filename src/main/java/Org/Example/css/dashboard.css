@@ -221,3 +221,26 @@ ul li {
 .field-list li:hover, ul li:hover {
     background-color: #eaeaea;
 }
+
+
+
+.saved-resources ul{
+    height: 130px;
+    overflow-y: auto;
+}
+
+.personal-topics ul{
+    height: 130px;
+    overflow-y: auto;
+}
+
+.personal-projects ul{
+    height: 130px;
+    overflow-y: auto;
+}
+
+.recent-resources ul{
+    height: 130px;
+    overflow-y: auto;
+}
+

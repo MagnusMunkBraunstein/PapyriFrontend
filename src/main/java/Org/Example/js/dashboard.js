@@ -61,7 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function loadPersonalResources() {
-    const url = 'http://localhost:8080/api/users/3/resources'; // Assuming the user ID is 3
+    const url = 'http://localhost:8080/api/users/3/resources';
+
     fetch(url, {
         method: 'GET',
         headers: {
@@ -71,27 +72,24 @@ function loadPersonalResources() {
         .then(response => response.json())
         .then(data => {
             const savedResourcesList = document.querySelector('.saved-resources ul');
-            savedResourcesList.innerHTML = '';// Clear existing list
+            savedResourcesList.innerHTML = ''; // Clear existing list
 
-            if (Array.isArray(data) && data.length > 0) {
-                data.forEach(resource => {
-                    const listItem = document.createElement('li');
-                    listItem.textContent = resource.name; // Assuming the resource object has a 'name' property
-                    savedResourcesList.appendChild(listItem);
-                });
-            } else {
-                const emptyMessage = document.createElement('li');
-                emptyMessage.textContent = 'No saved resources found';
-                savedResourcesList.appendChild(emptyMessage);
-            }
-            /*data.forEach(resource => {
+            data.forEach(resource => {
                 const listItem = document.createElement('li');
-                listItem.textContent = resource.name; // Assuming the resource object has a 'name' property
+                listItem.textContent = resource.name;
+                listItem.dataset.id = resource.id;
+                listItem.addEventListener('click', () => {
+                    window.location.href = `resource.html?id=${resource.id}`;
+                });
                 savedResourcesList.appendChild(listItem);
-            });*/
+            });
         })
         .catch((error) => {
             console.error("Error:", error);
         });
 }
+
+
+
+
 
