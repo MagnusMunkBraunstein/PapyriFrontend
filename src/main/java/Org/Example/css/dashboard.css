@@ -15,9 +15,8 @@ body {
 .top-bar {
     color: white;
     position: sticky;
-    top: 0px;
     width: 100%;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;
+    box-shadow: rgba(0, 0, 0, 0.1) 2px 4px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -46,7 +45,6 @@ body {
     align-items: center;
     width: 25%;
     height: 100vh;
-    margin-top: 0px;
     margin-left: 2%;
 }
 
@@ -54,7 +52,7 @@ body {
 .sidebar {
     background-color: rgb(69, 91, 85);
     width: 100%;
-    box-shadow: rgba(0, 0, 0, 0.1) 2px 0px 5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 2px 5px;
     height: 72.3vh;
     border-right: 1px solid rgb(30, 69, 62);
     padding: 20px;
@@ -64,7 +62,7 @@ body {
 .profile {
     position: static;
     width: 120px;
-    margin: 20px 0px;
+    margin: 20px;
 }
 
 .profile-picture-container {
@@ -193,7 +191,7 @@ body {
 .personal-projects, .personal-topics, .saved-resources, .recent-resources {
     color: white;
     background-color: rgb(69, 91, 85);
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 2px 5px;
     width: 50%;
     padding: 20px;
     border-radius: 35px;
