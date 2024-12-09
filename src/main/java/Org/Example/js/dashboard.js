@@ -60,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadPersonalResources();
 });
 
+//TODO
 function loadPersonalResources() {
 
     // need to insert the true id when it is posible
