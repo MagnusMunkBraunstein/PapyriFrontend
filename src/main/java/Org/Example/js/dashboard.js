@@ -93,6 +93,97 @@ function loadPersonalResources() {
         });
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    const createResourceButton = document.getElementById("createResourceButton");
+    if (createResourceButton) {
+        createResourceButton.addEventListener('click', () => {
+            document.getElementById('createResourceModal').style.display = 'block';
+        });
+    }
+
+    document.querySelector(".close").addEventListener('click', () => {
+        document.getElementById('createResourceModal').style.display = 'none';
+        });
+
+    document.getElementById("createResourceConfirmButton").addEventListener('click', () => {
+        const title = document.getElementById("resourceTitle").value.trim();
+        const refId = document.getElementById("resourceRefId").value.trim();
+
+        if (title && refId) {
+            checkResourceUniqueness(title, refId)
+                .then(isUnique => {
+                    if (isUnique) {
+                        const resource = {
+                            name: title,
+                            ref_id: refId
+                        };
+                        console.log("prepared resource", resource);
+                        saveResourceToBackend(resource);
+                        document.getElementById('createResourceModal').style.display = 'none';
+                    } else {
+                        alert("Title and Reference ID must be unique.");
+                    }
+                });
+
+            } else {
+            alert("Please fill out all fields.");
+        }
+    });
+});
+
+
+function checkResourceUniqueness(name, refId) {
+    if(!name||!refId){
+        console.error("Name or RefId is empty");
+        return Promise.resolve(false);
+    }
+
+    const url =`http://localhost:8080/api/resources/check-uniqueness?name=${encodeURIComponent(name)}&ref_id=${encodeURIComponent(refId)}`;
+    console.log("Sending request to:", url);
+    return fetch(url, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("HTTP error, status = " + response.status);
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.hasOwnProperty('isUnique')) {
+                return data.isUnique;
+            }else{
+                console.error("Response does not contain isUnique property");
+                throw new Error("Response does not contain isUnique property");
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            return false;
+        });
+}
+
+
+function saveResourceToBackend(resource) {
+    const url = "http://localhost:8080/api/resources";
+    fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(resource)
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log("resource created", data);
+        })
+        .catch(error => {
+            console.error("Error:", error);
+        });
+}
 
 
 

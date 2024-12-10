@@ -46,6 +46,8 @@
         <!-- Search Resources -->
         <div class="search-bar">
             <input type="text" placeholder="Search Resources (URL, ID, Title, Terms)...">
+            <!-- Button to Create Resource -->
+            <Button id="createResourceButton">Create Resource</Button>
         </div>
 
         <!-- Fields and Resources -->
@@ -90,8 +92,20 @@
         </div>
     </div>
 </div>
+<!-- Modal for Creating a Resource -->
+<div id="createResourceModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Create Resource</h2>
+        <label for="resourceTitle">Title:</label>
+        <input type="text" id="resourceTitle" name="resourceTitle" required>
+        <label for="resourceRefId">Ref. ID:</label>
+        <input type="text" id="resourceRefId" name="resourceRefId" required>
+        <button id="createResourceConfirmButton" class="button">Create</button>
+    </div>
+</div>
 
 
-    <script src="../js/dashboard.js"></script>
+<script src="../js/dashboard.js"></script>
 </body>
 </html>
