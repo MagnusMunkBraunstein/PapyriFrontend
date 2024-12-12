@@ -225,28 +225,6 @@ ul li {
     background-color: #eaeaea;
 }
 
-
-
-.saved-resources ul{
-    height: 130px;
-    overflow-y: auto;
-}
-
-.personal-topics ul{
-    height: 130px;
-    overflow-y: auto;
-}
-
-.personal-projects ul{
-    height: 130px;
-    overflow-y: auto;
-}
-
-.recent-resources ul{
-    height: 130px;
-    overflow-y: auto;
-}
-
 /*Modal styles*/
 .modal {
     display: none;
