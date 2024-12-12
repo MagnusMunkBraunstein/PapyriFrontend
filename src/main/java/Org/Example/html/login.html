@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <!-- Use the dashboard.css to maintain consistent styling -->
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+<!-- Top Bar -->
+<div class="top-bar">
+    <span class="top-bar-title">Login</span>
+</div>
+
+<!-- Centered Container for the Login Form -->
+<div class="dashboard" style="justify-content: center; align-items: center;">
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label><br>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <button type="submit" class="login-button">Login</button>
+        </form>
+        <button id="registerButton" class="register-button">Register</button>
+    </div>
+</div>
+
+<!-- Popup Overlay and Register Popup -->
+<div class="popup-overlay" id="popupOverlay"></div>
+<div class="popup" id="registerPopup">
+    <h2>Register</h2>
+    <form id="registerForm">
+        <div class="form-group">
+            <label for="regEmail">Email:</label><br>
+            <input type="email" id="regEmail" name="email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="regPassword">Password:</label><br>
+            <input type="password" id="regPassword" name="password" required>
+        </div>
+
+        <div class="form-group">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required>
+        </div>
+
+        <button type="submit" class="login-button">Confirm</button>
+        <button type="button" id="cancelButton" class="register-button">Cancel</button>
+    </form>
+</div>
+
+<script src="../js/login.js"></script>
+</body>
+</html>
