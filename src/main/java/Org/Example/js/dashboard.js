@@ -93,6 +93,39 @@ function loadPersonalResources() {
         });
 }
 
+function loadRecentResources() {
+    const url = `http://localhost:8080/api/resources/recent`;
+
+    fetch(url, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(response => response.json())
+        .then(data => {
+            const recentResourcesList = document.querySelector('.recent-resources ul');
+            recentResourcesList.innerHTML = ''; // Clear existing list
+
+            data.forEach(resource => {
+                const listItem = document.createElement('li');
+                listItem.textContent = resource.name;
+                listItem.dataset.id = resource.id;
+                listItem.addEventListener('click', () => {
+                    window.location.href = `resource.html?id=${resource.id}`;
+                });
+                recentResourcesList.appendChild(listItem);
+            });
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    loadRecentResources();
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     const createResourceButton = document.getElementById("createResourceButton");
     if (createResourceButton) {
@@ -185,6 +218,86 @@ function saveResourceToBackend(resource) {
         });
 }
 
+// Search Functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.querySelector('.search-bar input');
+    const searchResults = document.querySelector('.search-results');
+    const searchScope = document.getElementById('searchScope');
 
+    searchInput.addEventListener('input', () => {
+        const query = searchInput.value.trim();
+        const scope = searchScope.value;
+        if (query.length > 0) { // Start searching after 1 character
+            searchResources(query, scope);
+        } else {
+            clearSearchResults();
+        }
+    });
 
+    searchInput.addEventListener('blur', () => {
+        setTimeout(clearSearchResults, 200); // Delay clearing to allow click events
+    });
 
+    searchResults.addEventListener('mousedown', (event) => {
+        event.preventDefault(); // Prevent blur event when clicking on search results
+    });
+});
+
+function searchResources(query, scope) {
+    let url;
+    if (scope === 'saved-resources') {
+        url = `http://localhost:8080/api/resources/saved/search?query=${encodeURIComponent(query)}`;
+    } else if (scope === 'recent-resources') {
+        url = `http://localhost:8080/api/resources/recent/search?query=${encodeURIComponent(query)}`;
+    } else if (scope === 'personal-projects') {
+        url = `http://localhost:8080/api/resources/search?query=${encodeURIComponent(query)}`;
+    } else if (scope === 'personal-topics') {
+        url = `http://localhost:8080/api/topics/search?query=${encodeURIComponent(query)}`;
+    } else {
+        url = `http://localhost:8080/api/resources/search?query=${encodeURIComponent(query)}`;
+    }
+
+    fetch(url, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(response => response.json())
+        .then(data => {
+            displaySearchResults(data);
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
+}
+
+function displaySearchResults(resources) {
+    const searchResultsContainer = document.querySelector('.search-results ul');
+    searchResultsContainer.innerHTML = ''; // Clear previous results
+
+    if (resources.length === 0) {
+        const noResultsItem = document.createElement('li');
+        noResultsItem.textContent = 'No matching results';
+        noResultsItem.style.color = 'red'; // Optional: style the message
+        searchResultsContainer.appendChild(noResultsItem);
+    } else {
+        resources.forEach(resource => {
+            const listItem = document.createElement('li');
+            listItem.textContent = resource.name;
+            listItem.dataset.id = resource.id;
+            listItem.addEventListener('click', () => {
+                window.location.href = `resource.html?id=${resource.id}`;
+            });
+            searchResultsContainer.appendChild(listItem);
+        });
+    }
+
+    document.querySelector('.search-results').style.display = 'block';
+}
+
+function clearSearchResults() {
+    const searchResultsContainer = document.querySelector('.search-results ul');
+    searchResultsContainer.innerHTML = ''; // Clear previous results
+    document.querySelector('.search-results').style.display = 'none';
+}

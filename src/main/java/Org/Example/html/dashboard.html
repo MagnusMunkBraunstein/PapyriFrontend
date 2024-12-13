@@ -45,9 +45,19 @@
     <div class="main">
         <!-- Search Resources -->
         <div class="search-bar">
+            <select id="searchScope">
+                <option value="all">All</option>
+                <option value="saved-resources">Saved Resources</option>
+                <option value="recent-resources">Recent Resources</option>
+                <option value="personal-projects">Personal Projects</option>
+                <option value="personal-topics">Personal Topics</option>
+            </select>
             <input type="text" placeholder="Search Resources (URL, ID, Title, Terms)...">
+            <div class="search-results">
+                <ul></ul>
+            </div>
             <!-- Button to Create Resource -->
-            <Button id="createResourceButton">Create Resource</Button>
+            <Button id="createResourceButton">New Resource</Button>
         </div>
 
         <!-- Fields and Resources -->
@@ -83,9 +93,6 @@
             <div class="recent-resources">
                 <h3>RECENT RESOURCES VIEWED</h3>
                 <ul>
-                    <li>Recent 1</li>
-                    <li>Recent 2</li>
-                    <li>Recent 3</li>
                 </ul>
             </div>
         </div>

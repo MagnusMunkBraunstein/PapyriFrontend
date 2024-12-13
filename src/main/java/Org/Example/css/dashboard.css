@@ -166,11 +166,41 @@ body {
 }
 
 .search-bar {
+    position: relative;
     margin-bottom: 20px;
     margin-left: 20px;
     margin-right: 20px;
     display: flex;
     justify-content: center;
+}
+
+.search-results {
+    display: none; /* Hide the search reusults by default*/
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.search-results ul {
+    list-style-type: none;
+    padding: 5px;
+    margin: 5px;
+}
+
+.search-results li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.search-results li:hover {
+    background-color: #f0f0f0;
 }
 /* Shortend the search bar and added a create resource button*/
 /* Old value: width: 100% */
@@ -200,6 +230,8 @@ body {
     border-radius: 35px;
     margin: 20px;
     border-right: 1px solid rgb(30, 69, 62);
+    max-height: 400px;
+    overflow-y: auto;
 }
 
 h3 {
@@ -209,6 +241,7 @@ h3 {
 ul {
     list-style-type: none;
     padding: 0;
+
 }
 
 ul li {
@@ -261,4 +294,42 @@ ul li {
     text-decoration: none;
     cursor: pointer;
 }
+.saved-resources ul {
+    max-height: 300px; /* Adjust the height as needed to fit 5 elements */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 0; /* Remove padding to ensure proper scrolling */
+    margin: 0; /* Remove margin to ensure proper scrolling */
+    border-radius: 10px;
+}
 
+/* Custom Scrollbar Styling for WebKit Browsers */
+.saved-resources ul::-webkit-scrollbar {
+    width: 10px; /* Width of the scrollbar */
+}
+
+.saved-resources ul::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Background of the scrollbar track */
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px grey; /* Add shadow for a smoother look */
+}
+
+.saved-resources ul::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the scrollbar thumb */
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px grey; /* Add shadow for a smoother look */
+}
+
+.saved-resources ul::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color of the scrollbar thumb on hover */
+}
+
+.saved-resources ul::-webkit-scrollbar-button {
+    display: none; /* Hide the up and down arrows */
+}
+
+/* Custom Scrollbar Styling for Firefox */
+.saved-resources ul {
+    scrollbar-width: thin; /* Width of the scrollbar */
+    scrollbar-color: #888 #f1f1f1; /* Color of the scrollbar thumb and track */
+    scrollbar-gutter: stable both-edges; /* Ensure the scrollbar has rounded edges */
+}
