@@ -51,10 +51,11 @@ function checkIfResourceIsSaved(userId, resourceId, saveButton) {
 }
 
 function saveResource() {
+    const userId = localStorage.getItem('userId');
     const url = "http://localhost:8080/api/users/saveaspersonalresource";
     const params = new URLSearchParams({
         resourceId: "3",
-        userId: "3"
+        userId: userId
     });
 
     fetch(url + "?" + params.toString(), {
