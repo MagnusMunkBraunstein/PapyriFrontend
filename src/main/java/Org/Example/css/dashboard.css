@@ -2,21 +2,82 @@
 body {
     font-family: "Times New Roman", Times, serif;
     box-sizing: border-box;
-    background-color: rgb(24, 44, 37);
-    color: rgb(51, 51, 51);
+    background-color: var(--background-color);
+    color: var(--text-color);
     overflow: hidden;
 }
 
-/* Top Bar */
-:root {
-    --top-bar-gradient: linear-gradient(to right, #2c4c3b, #306844); /* Default gradient */
+    /* Root Default Theme */
+    :root {
+        --background-color: rgb(24, 44, 37);
+        --text-color: rgb(51, 51, 51);
+        --top-bar-gradient: linear-gradient(to right, #2c4c3b, #306844);
+
+        --sidebar-bg-color: rgb(69, 91, 85);
+        --sidebar-border-color: rgb(30, 69, 62);
+
+        --box-shadow-color: rgba(0, 0, 0, 0.1);
+        --border-color: rgb(204, 204, 204);
+        --hover-bg-color: #eaeaea;
+
+        --saved-resources-bg: #f7f7f7;
+        --scrollbar-thumb-color: #888;
+        --scrollbar-thumb-hover-color: #555;
+        --scrollbar-track-color: #f1f1f1;
+
+        --greyish-color: #aaaaaa;
+
+        --modal-overlay-bg: rgba(0, 0, 0, 0.4);
+        --modal-content-bg: #fefefe;
+
+        --profile-border-color: #ccc;
+        --upload-overlay-bg: rgba(0, 0, 0, 0.6);
+        --upload-overlay-text-color: #fff;
+        --black-color: #000;
+    }
+
+body.cahw-theme {
+    --background-color: #E9E2D0; /* Light Beige */
+    --text-color: #2D3C2E;      /* Dark Green */
+    --top-bar-gradient: linear-gradient(to right, #9DAA87, #3B5E47);
+
+    --sidebar-bg-color: #9DAA87; /* Olive Green */
+    --sidebar-border-color: #3B5E47; /* Forest Green */
+
+    --hover-bg-color: #A29A7D; /* Taupe */
+    --saved-resources-bg: #D0C4AD;
+
+    --scrollbar-thumb-color: #6C7A61;
+    --scrollbar-track-color: #E9E2D0;
+
+    --modal-overlay-bg: rgba(0, 0, 0, 0.4);
+    --modal-content-bg: #F3EFE6;
+}
+
+/* Skintones01 Theme */
+body.skintones-theme {
+    --background-color: #FFF5E0; /* Light Peach */
+    --text-color: #4E3D2C;       /* Deep Brown */
+    --top-bar-gradient: linear-gradient(to right, #D8C0A5, #C2A38C);
+
+    --sidebar-bg-color: #D8C0A5; /* Tan */
+    --sidebar-border-color: #C2A38C; /* Light Brown */
+
+    --hover-bg-color: #7A5A46;  /* Chocolate */
+    --saved-resources-bg: #F0E0D0;
+
+    --scrollbar-thumb-color: #8E705D;
+    --scrollbar-track-color: #FFF5E0;
+
+    --modal-overlay-bg: rgba(0, 0, 0, 0.4);
+    --modal-content-bg: #F8E9DD;
 }
 
 .top-bar {
     color: white;
     position: sticky;
     width: 100%;
-    box-shadow: rgba(0, 0, 0, 0.1) 2px 4px;
+    box-shadow: var(--box-shadow-color) 2px 4px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -24,6 +85,30 @@ body {
     border-top-left-radius: 10px;
     background: var(--top-bar-gradient);
     padding: 10px 20px;
+}
+
+.theme-dropdown {
+    display: flex;
+    align-items: center;
+    margin-right: 20px; /* Move dropdown to the left */
+}
+
+#theme-selector {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: #333333;
+    cursor: pointer;
+}
+
+#theme-selector:hover {
+    background-color: #f0f0f0;
+}
+
+#theme-selector option {
+    background-color: #ffffff; /* White background for dropdown options */
+    color: #333333; /* Dark grey text for dropdown options */
 }
 
 .top-bar-title {
@@ -50,11 +135,11 @@ body {
 
 /* Sidebar */
 .sidebar {
-    background-color: rgb(69, 91, 85);
+    background-color: var(--sidebar-bg-color);
     width: 100%;
-    box-shadow: rgba(0, 0, 0, 0.1) 2px 5px;
+    box-shadow: var(--box-shadow-color) 2px 5px;
     height: 72.3vh;
-    border-right: 1px solid rgb(30, 69, 62);
+    border-right: 1px solid var(--sidebar-border-color);
     padding: 20px;
     border-radius: 35px;
 }
@@ -72,7 +157,7 @@ body {
     height: 120px;
     border-radius: 50%;
     overflow: hidden;
-    border: 2px solid #ccc;
+    border: 2px solid var(--profile-border-color);
     margin: 0 auto;
     cursor: pointer;
 }
@@ -89,8 +174,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    color: #fff;
+    background: var(--upload-overlay-bg);
+    color: var(--upload-overlay-text-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -136,7 +221,7 @@ body {
     padding: 5px;
     border-width: 1px;
     border-style: solid;
-    border-color: rgb(204, 204, 204);
+    border-color: var(--border-color);
     border-image: initial;
     border-radius: 5px;
 }
@@ -148,11 +233,11 @@ body {
 
 .field-list li {
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--profile-border-color);
     border-radius: 5px;
     margin-bottom: 5px;
     cursor: pointer;
-    background-color: #f7f7f7;
+    background-color: var(--saved-resources-bg);
 }
 
 /* Main Section */
@@ -181,9 +266,9 @@ body {
     left: 0;
     width: 100%;
     background-color: white;
-    border: 1px solid #ccc;
+    border: 1px solid var(--profile-border-color);
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px var(--box-shadow-color);
     z-index: 1000;
 }
 
@@ -195,12 +280,12 @@ body {
 
 .search-results li {
     padding: 10px;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid var(--profile-border-color);
     cursor: pointer;
 }
 
 .search-results li:hover {
-    background-color: #f0f0f0;
+    background-color: var(--upload-overlay-text-color);
 }
 /* Shortend the search bar and added a create resource button*/
 /* Old value: width: 100% */
@@ -209,7 +294,7 @@ body {
     padding: 10px;
     border-width: 1px;
     border-style: solid;
-    border-color: rgb(204, 204, 204);
+    border-color: var(--border-color);
     border-image: initial;
     border-radius: 5px;
     margin-right: 10px; /* Add some space between the search bar and the create resource button, needs to be removed later */
@@ -222,14 +307,14 @@ body {
 }
 
 .personal-projects, .personal-topics, .saved-resources, .recent-resources {
-    color: black;
-    background-color: rgb(69, 91, 85);
-    box-shadow: rgba(0, 0, 0, 0.1) 2px 5px;
+    color: var(--black-color);
+    background-color: var(--sidebar-bg-color);
+    box-shadow: var(--box-shadow-color) 2px 5px;
     width: 50%;
     padding: 20px;
     border-radius: 35px;
     margin: 20px;
-    border-right: 1px solid rgb(30, 69, 62);
+    border-right: 1px solid var(--sidebar-border-color);
     max-height: 400px;
     overflow-y: auto;
 }
@@ -246,16 +331,16 @@ ul {
 
 ul li {
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--profile-border-color);
     border-radius: 5px;
     margin-bottom: 5px;
-    background-color: #f7f7f7;
+    background-color: var(--saved-resources-bg);
     cursor: pointer;
 }
 
 /* Hover Effects */
 .field-list li:hover, ul li:hover {
-    background-color: #eaeaea;
+    background-color: var(--hover-bg-color);
 }
 
 /*Modal styles*/
@@ -269,20 +354,20 @@ ul li {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
+    background-color: var(--black-color);
+    background-color: var(--modal-overlay-bg);
 }
 
 .modal-content {
-    background-color: #fefefe;
+    background-color: var(--modal-content-bg);
     margin: 5% auto;
     padding: 20px;
-    border: 1px solid #888;
+    border: 1px solid var(--scrollbar-thumb-color);
     width: 80%;
 }
 
 .close {
-    color: #aaaaaa;
+    color: var(--greyish-color);
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -290,7 +375,7 @@ ul li {
 
 .close:hover,
 .close:focus {
-    color: #000;
+    color: var(--black-color);
     text-decoration: none;
     cursor: pointer;
 }
@@ -308,13 +393,13 @@ ul li {
 }
 
 .saved-resources ul::-webkit-scrollbar-track {
-    background: #f1f1f1; /* Background of the scrollbar track */
+    background: var(--scrollbar-track-color); /* Background of the scrollbar track */
     border-radius: 10px;
     box-shadow: inset 0 0 5px grey; /* Add shadow for a smoother look */
 }
 
 .saved-resources ul::-webkit-scrollbar-thumb {
-    background: #888; /* Color of the scrollbar thumb */
+    background: var(--scrollbar-thumb-color); /* Color of the scrollbar thumb */
     border-radius: 10px;
     box-shadow: inset 0 0 5px grey; /* Add shadow for a smoother look */
 }
@@ -330,6 +415,6 @@ ul li {
 /* Custom Scrollbar Styling for Firefox */
 .saved-resources ul {
     scrollbar-width: thin; /* Width of the scrollbar */
-    scrollbar-color: #888 #f1f1f1; /* Color of the scrollbar thumb and track */
+    scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color); /* Color of the scrollbar thumb and track */
     scrollbar-gutter: stable both-edges; /* Ensure the scrollbar has rounded edges */
 }

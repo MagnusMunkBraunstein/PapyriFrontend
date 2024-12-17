@@ -9,6 +9,14 @@
 <body>
 <div class="top-bar">
     <span class="top-bar-title">Your Dashboard</span>
+    <div class="theme-dropdown">
+        <label for="theme-selector">Select Theme:</label>
+        <select id="theme-selector" onchange="setThemeFromDropdown()">
+            <option value="">Default Theme</option>
+            <option value="cahw-theme">CAHW Option 10</option>
+            <option value="skintones-theme">Skintones01</option>
+        </select>
+    </div>
 </div>
 <div class="dashboard">
     <!-- Profile and Sidebar Container -->

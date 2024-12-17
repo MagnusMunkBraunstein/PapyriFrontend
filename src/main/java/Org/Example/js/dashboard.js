@@ -301,3 +301,33 @@ function clearSearchResults() {
     searchResultsContainer.innerHTML = ''; // Clear previous results
     document.querySelector('.search-results').style.display = 'none';
 }
+
+// Function to set theme based on dropdown selection
+function setThemeFromDropdown() {
+    const theme = document.getElementById('theme-selector').value;
+    setTheme(theme);
+}
+
+// Load saved theme and update dropdown value on page load
+function loadSavedTheme() {
+    const savedTheme = localStorage.getItem('selectedTheme');
+    if (savedTheme) {
+        setTheme(savedTheme);
+
+        document.getElementById('theme-selector').value = savedTheme;
+    }
+}
+
+function setTheme(theme) {
+    // Remove any existing theme classes on the body
+    document.body.className = '';
+    if (theme) {
+        document.body.classList.add(theme);
+    }
+
+    localStorage.setItem('selectedTheme', theme);
+}
+
+// Call the loadSavedTheme function on page load
+window.onload = loadSavedTheme;
+
