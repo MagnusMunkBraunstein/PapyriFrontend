@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const returnToDashboardButton = document.getElementById('returnToDashboardButton');
     const confirmationMessage = document.getElementById('confirmationMessage');
 
+    loadSavedTheme();
+
     confirmationMessage.classList.remove("hidden");
 
     const urlParams = new URLSearchParams(window.location.search);
@@ -71,3 +73,31 @@ function saveResource() {
             console.error("Error:", error);
         });
 }
+
+function applySavedTheme(){
+    const savedTheme = localStorage.getItem("selectedTheme");
+    if (savedTheme) {
+        document.body.className = "";
+        document.body.classList.add(savedTheme);
+    }
+}
+
+// Function to load the saved theme from localStorage
+function loadSavedTheme() {
+    const savedTheme = localStorage.getItem('selectedTheme');
+    console.log('loaded theme from local storage:', savedTheme);
+    if (savedTheme) {
+        setTheme(savedTheme);  // Apply the saved theme
+    }
+}
+
+function setTheme(theme) {
+    // Remove any existing theme classes on the body
+    document.body.className = '';
+    if (theme) {
+        document.body.classList.add(theme);
+    }
+    // Store the theme in localStorage
+    localStorage.setItem('selectedTheme', theme);
+}
+

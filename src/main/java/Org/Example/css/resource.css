@@ -1,3 +1,51 @@
+/* Default root theme variables */
+:root {
+    --background-color: rgb(24, 44, 37); /* Body background */
+    --text-color: rgb(51, 51, 51); /* General text color */
+    --card-bg-color: #ffffff; /* Card background */
+    --card-border-color: rgb(204, 204, 204); /* Card border */
+    --button-bg-color: rgb(69, 91, 85); /* Button background */
+    --button-text-color: #ffffff; /* Button text color */
+    --button-hover-bg-color: rgb(48, 72, 63); /* Button hover background */
+    --textarea-bg-color: #e2e8f0; /* Textarea background */
+    --textarea-border-color: rgb(204, 204, 204); /* Textarea border */
+    --confirmation-bg-color: #bee3f8; /* Confirmation message background */
+    --confirmation-text-color: rgb(51, 51, 51); /* Confirmation message text */
+}
+
+/* CAHW Option 10 theme */
+body.cahw-option-10 {
+    --background-color: #4fa85e;
+    --text-color: black;
+    --card-bg-color: #a2c9a3;
+    --card-border-color: #6a9ac6;
+    --button-bg-color: #76c083;
+    --button-hover-bg-color: #6a9ac6;
+    --button-text-color: white;
+    --textarea-bg-color: #a2c9a3;
+    --textarea-border-color: #6a9ac6;
+    --confirmation-bg-color: #a2c9a3;
+    --confirmation-text-color: black;
+}
+
+
+/* Skintones01 theme */
+body.skintones-theme {
+    --background-color: #FFF5E0;
+    --text-color: #4E3D2C;
+    --card-bg-color: #F0E0D0;
+    --card-border-color: #C2A38C;
+    --button-bg-color: #D8C0A5;
+    --button-hover-bg-color: #7A5A46;
+    --button-text-color: white;
+    --textarea-bg-color: #F8E9DD;
+    --textarea-border-color: #C2A38C;
+    --confirmation-bg-color: #F0E0D0;
+    --confirmation-text-color: #4E3D2C;
+}
+
+
+/* General page styling */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -6,31 +54,34 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f9f9f9;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
 .container {
     position: relative;
     width: 100%;
-    max-width: none;
-    padding: 0 10px;
+    max-width: 600px;
+    padding: 20px;
+    color: var(--text-color);
 }
 
 .title {
     text-align: center;
-    color: #2b6cb0;
+    color: var(--text-color);
     font-size: 24px;
     margin-bottom: 20px;
 }
 
 .card {
-    background-color: #fff;
-    border: 2px solid #ddd;
+    background-color: var(--card-bg-color);
+    border: 2px solid var(--card-border-color);
     border-radius: 10px;
     padding: 20px;
     display: flex;
     flex-direction: column;
     gap: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .buttons {
@@ -43,21 +94,21 @@ body {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    background-color: #3182ce;
-    color: white;
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
     cursor: pointer;
     font-size: 16px;
 }
 
 .button:hover {
-    background-color: #2c5282;
+    background-color: var(--button-hover-bg-color);
 }
 
 .box {
     height: 100px;
-    background-color: #e2e8f0;
+    background-color: var(--textarea-bg-color);
     border-radius: 5px;
-    border: 2px solid #cbd5e0;
+    border: 2px solid var(--textarea-border-color);
     width: 100%;
 }
 
@@ -65,15 +116,13 @@ body {
     position: absolute;
     top: 20px;
     right: 20px;
-    background-color: #bee3f8;
+    background-color: var(--confirmation-bg-color);
     padding: 10px;
     border-radius: 5px;
-    color: #2b6cb0;
-    border: 1px solid #90cdf4;
+    color: var(--confirmation-text-color);
+    border: 1px solid var(--card-border-color);
 }
 
 .hidden {
     display: none !important;
 }
-
-

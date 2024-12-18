@@ -310,24 +310,34 @@ function setThemeFromDropdown() {
 
 // Load saved theme and update dropdown value on page load
 function loadSavedTheme() {
-    const savedTheme = localStorage.getItem('selectedTheme');
+    const savedTheme = localStorage.getItem('selectedTheme'); // Retrieve the saved theme from localStorage
     if (savedTheme) {
-        setTheme(savedTheme);
-
-        document.getElementById('theme-selector').value = savedTheme;
+        setTheme(savedTheme); // Apply the saved theme
+        document.getElementById('theme-selector').value = savedTheme; // Update the dropdown to match the saved theme
     }
 }
 
 function setTheme(theme) {
-    // Remove any existing theme classes on the body
     document.body.className = '';
+
     if (theme) {
         document.body.classList.add(theme);
     }
 
     localStorage.setItem('selectedTheme', theme);
+
+    localStorage.setItem('themeChangeEvent', Date.now()); // Trigger an update event
 }
+
+// Listen for theme changes triggered in other tabs or windows
+window.addEventListener('storage', (event) => {
+    if (event.key === 'themeChangeEvent') {
+        // Load and apply the latest theme when a change is detected
+        loadSavedTheme();
+    }
+});
 
 // Call the loadSavedTheme function on page load
 window.onload = loadSavedTheme;
+
 
