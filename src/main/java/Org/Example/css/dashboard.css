@@ -36,22 +36,27 @@ body {
         --black-color: #000;
     }
 
-body.cahw-theme {
-    --background-color: #E9E2D0; /* Light Beige */
-    --text-color: #2D3C2E;      /* Dark Green */
-    --top-bar-gradient: linear-gradient(to right, #9DAA87, #3B5E47);
+body.cahw-option-10 {
+    --background-color: #4fa85e; /* Medium Green - Main background */
+    --text-color: #ffffff; /* White - Easy readability on the green base */
+    --top-bar-gradient: linear-gradient(to right, #4fa85e, #3d85c6); /* Medium Green to Deep Blue gradient */
 
-    --sidebar-bg-color: #9DAA87; /* Olive Green */
-    --sidebar-border-color: #3B5E47; /* Forest Green */
+    --sidebar-bg-color: #76c083; /* Light Green */
+    --sidebar-border-color: #6a9ac6; /* Medium Blue */
 
-    --hover-bg-color: #A29A7D; /* Taupe */
-    --saved-resources-bg: #D0C4AD;
+    --box-shadow-color: rgba(0, 0, 0, 0.2); /* Subtle black shadow */
+    --border-color: #a2c9a3; /* Muted Light Green */
+    --hover-bg-color: #6a9ac6; /* Medium Blue */
 
-    --scrollbar-thumb-color: #6C7A61;
-    --scrollbar-track-color: #E9E2D0;
+    --saved-resources-bg: #a2c9a3; /* Muted Light Green */
+    --scrollbar-thumb-color: #6a9ac6; /* Medium Blue */
+    --scrollbar-thumb-hover-color: #3d85c6; /* Deep Blue */
+    --scrollbar-track-color: #76c083; /* Light Green */
 
-    --modal-overlay-bg: rgba(0, 0, 0, 0.4);
-    --modal-content-bg: #F3EFE6;
+    --modal-overlay-bg: rgba(63, 133, 198, 0.8); /* Deep Blue overlay */
+    --modal-content-bg: #a2c9a3; /* Muted Light Green modal background */
+    --upload-overlay-bg: rgba(63, 133, 198, 0.7); /* Deep Blue overlay for uploads */
+    --upload-overlay-text-color: #ffffff; /* White text for contrast */
 }
 
 /* Skintones01 Theme */
