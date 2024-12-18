@@ -37,38 +37,38 @@ body {
     }
 
 body.cahw-option-10 {
-    --background-color: #4fa85e; /* Medium Green - Main background */
-    --text-color: #ffffff; /* White - Easy readability on the green base */
-    --top-bar-gradient: linear-gradient(to right, #4fa85e, #3d85c6); /* Medium Green to Deep Blue gradient */
+    --background-color: #4fa85e;
+    --text-color: black;
+    --top-bar-gradient: linear-gradient(to right, #4fa85e, #3d85c6);
 
-    --sidebar-bg-color: #76c083; /* Light Green */
-    --sidebar-border-color: #6a9ac6; /* Medium Blue */
+    --sidebar-bg-color: #76c083;
+    --sidebar-border-color: #6a9ac6;
 
-    --box-shadow-color: rgba(0, 0, 0, 0.2); /* Subtle black shadow */
-    --border-color: #a2c9a3; /* Muted Light Green */
-    --hover-bg-color: #6a9ac6; /* Medium Blue */
+    --box-shadow-color: rgba(0, 0, 0, 0.2);
+    --border-color: #a2c9a3;
+    --hover-bg-color: #6a9ac6;
 
-    --saved-resources-bg: #a2c9a3; /* Muted Light Green */
-    --scrollbar-thumb-color: #6a9ac6; /* Medium Blue */
-    --scrollbar-thumb-hover-color: #3d85c6; /* Deep Blue */
-    --scrollbar-track-color: #76c083; /* Light Green */
+    --saved-resources-bg: #a2c9a3;
+    --scrollbar-thumb-color: #6a9ac6;
+    --scrollbar-thumb-hover-color: #3d85c6;
+    --scrollbar-track-color: #76c083;
 
-    --modal-overlay-bg: rgba(63, 133, 198, 0.8); /* Deep Blue overlay */
-    --modal-content-bg: #a2c9a3; /* Muted Light Green modal background */
-    --upload-overlay-bg: rgba(63, 133, 198, 0.7); /* Deep Blue overlay for uploads */
-    --upload-overlay-text-color: #ffffff; /* White text for contrast */
+    --modal-overlay-bg: rgba(63, 133, 198, 0.8);
+    --modal-content-bg: #a2c9a3;
+    --upload-overlay-bg: rgba(63, 133, 198, 0.7);
+    --upload-overlay-text-color: #ffffff;
 }
 
 /* Skintones01 Theme */
 body.skintones-theme {
-    --background-color: #FFF5E0; /* Light Peach */
-    --text-color: #4E3D2C;       /* Deep Brown */
+    --background-color: #FFF5E0;
+    --text-color: #4E3D2C;
     --top-bar-gradient: linear-gradient(to right, #D8C0A5, #C2A38C);
 
-    --sidebar-bg-color: #D8C0A5; /* Tan */
-    --sidebar-border-color: #C2A38C; /* Light Brown */
+    --sidebar-bg-color: #D8C0A5;
+    --sidebar-border-color: #C2A38C;
 
-    --hover-bg-color: #7A5A46;  /* Chocolate */
+    --hover-bg-color: #7A5A46;
     --saved-resources-bg: #F0E0D0;
 
     --scrollbar-thumb-color: #8E705D;
